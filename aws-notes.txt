@@ -1,0 +1,115 @@
+Accessing ASW resources
+- AWS Console (Wen interface)
+- AWS SDK/cli (with the help of specific language bindings)
+- REST API
+
+EC2 - Elastic Computer Cloud
+- scalable computing capacity
+
+Best practises of EC2
+- IAM
+- disabling password-based login for services
+- network firewall
+
+S3 - Simple Storage Service
+- object storage platform
+- high levels of durability and availability
+- manages data for 
+	- cost optimization
+	- access control
+	- compliance
+
+EBS - Elastic Block Storage
+- easy-to-use, scalable, high-performance block-storage service designed for EC2
+- SSD-based 
+	- General purpose or Provisioned IOPS
+- HDD-based 
+	- Throughput optimized or Cold storage
+
+IAM - Identity Access Management
+- service for securely controlling access to AWS resources.
+- manage users and security credentials (access keys and permissions)
+
+VPC Virtual Private Cloud
+- best way for connecting to cloud resources from one's own data center
+- upon connection, each instance is assigned a private IP address that can then be accessed from the data center
+	- in this way, one can access your public cloud resources as if they were on your own private network
+
+Route 53
+- AWS scalable and highly available DNS
+- the name refers to TCP and UDP port 53, where DNS server requests are addressed
+
+Cloudtrail
+- service capturing information about every request sent to Route 53 API by an AWS account
+- service saves log files to S3 buckets
+
+RDS - Relation Database Service
+- managaes patching, upgrading and data backups automatically
+- handles strictured data (both relational and non-relational)
+
+DynamoDb
+- AWS NoSQL database
+- handles hardware provisioning, setup configuration, replication, software patching and cluster scaling
+
+Redshift
+- petabyte-size data warehouse service
+- easy, cost-effective and scalable for data analysis and business intelligence
+
+AWS Disaster recovery
+- enables faster recovery from catastrophic system failure without the cost of a second physical site
+- seamlessly replicate on-premise data to the cloud
+
+AMI - Amazon Machine Image
+- a supported and maintained image provided by AWS that provides information required to launch a new instance
+- to create an AMI, you need a running instance of an Amazon linux OS and then using the OS tools for packaging up your example into an AMI
+
+AWS Auto Scaling/Load Balancer
+- two tools used together to manage server traffic
+- application load balancer
+	- designed to make routing decisions at the application layer (layer 7)
+- network load balancer	
+	- handles millions of requests per second and makes routing decisions at the transport layer (layer 3-4)
+- classic load balancer
+	- used mainly for applications build within the EC2-classic network
+
+SQS - Simple Queue Service
+- fast, reliable, scalable, fully-managed message queuing service
+
+SNS - Simple Notification Service
+- quick, flexible, fully-managed push notification services
+- point-to-point or fun-out messaging
+
+SES - Simple Email Service
+- cost effectiev, flexible and scalable email service that allows developers to send emails from within a application
+
+Elastic Beanstalk
+- easy-to-use service for deploying and scaling web applications and services on familiar servers in AWS
+
+AWS Opswork
+- cloud orchestration technology for managing server deployments and applications using DevOps methodologies
+- automates tasks such as softwatr updates, instance scaling and monitoring
+- provides a flexible architecture for using IAC tools such as Chef and Puppet
+
+Cloudfront
+- AWS content delivery network
+
+CloudFormation
+- AWS service dedicated to solving the need to standardize and replicate architectures to facilitate the execution
+- optimize resources and their cost in the delivery of applications or compliance with an organization's requirements
+- allow creation of a proprietary library of instance templates or architectures capable of on-demand deployment programatically
+
+AWS Lambda
+- computing service that lets code run in AWS without explicitly provisioning or managing servers
+
+Serverless application
+- the Serverless Application Model (AWS SAM) extends Cluodformation to provide a simplified way of defining the following resources which are necessary for creating a serverless app:
+	- AWS Api Gateway
+	- AWS Lambda functions
+	- AWS Dynamo DN
+
+ElastiCache
+- web service that makes it easier to deploy, operate and scale an in-memory data store or cache in the cloud
+
+Sharding
+- horizontal partitioning technique for scaling out a relational database
+
