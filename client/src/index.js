@@ -1,5 +1,6 @@
+import { generateToken, onMessageEvent } from './fb-messaging';
 const mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
-const MAPBOX_ACCESS_TOKEN = "pk.eyJ1IjoibXlyZXdhcmQiLCJhIjoiY2x1c3RpMXE5MG82YzJpcDRzcnFzbzdobiJ9.aL5j11VmaE9wWhWn0i1BNw"
+const localProps = require('./init-props');
 
 const successCallback = (position) => {
     console.log(position);
@@ -17,7 +18,7 @@ const options = {
 
 function setupMap(center) {
 
-    mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
+    mapboxgl.accessToken = localProps("REACT_APP_MAPBOX_ACCESS_TOKEN");
     const map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
@@ -65,4 +66,49 @@ function startWatching(stopSelector) {
     }
 }
 
-startWatching("button.connect")
+function openApiSession() {
+    fetch("http://localhost:8082/api/session", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: {
+            email: "zes.ty@aol.com",
+            password: "admin"
+        }
+    })
+        // .then(res => {
+        //     return res.json()
+        // })
+        .then(data => {
+            console.log(data)
+            openWebsocket();
+        })
+        .catch(err => {
+            console.log(err)
+        })
+}
+
+function openWebsocket() {
+    var socket;
+    socket = new WebSocket('ws://localhost:8082/api/socket');
+
+    socket.onclose = function (event) {
+        console.log("WebSocket closed");
+    };
+
+    socket.onmessage = function (event) {
+        var i, j, store, data, array, entity, device, typeKey, alarmKey, text, geofence;
+        console.log(event.data);
+    };
+}
+
+//startWatching("button.connect")
+
+document.addEventListener('DOMContentLoaded', () => {
+    generateToken()
+    onMessageEvent((payload) => {
+        console.log(payload)
+    })
+    openApiSession()
+})

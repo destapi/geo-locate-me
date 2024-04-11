@@ -51,6 +51,7 @@ module.exports = {
         { from: "public/css/map.css", to: "map.css" },
         { from: "public/login.html", to: "login.html" },
         { from: "public/css/login.css", to: "login.css" },
+        { from: 'public/js/firebase-messaging-sw.js', to: 'firebase-messaging-sw.js'}
       ],
     }),
   ],

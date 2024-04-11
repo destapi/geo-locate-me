@@ -1,20 +1,14 @@
 const { initializeApp } = require('firebase/app');
 const { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } = require("firebase/auth");
-
-const REACT_APP_FIREBASE_API_KEY = "AIzaSyBpYFNTFvknzY-5qJs2RfppQIq62vWz80A"
-const REACT_APP_FIREBASE_AUTH_DOMAIN = "geo-locate-me-sns.firebaseapp.com"
-const REACT_APP_FIREBASE_PROJECT_ID = "geo-locate-me-sns"
-const REACT_APP_FIREBASE_STORAGE_BUCKET = "geo-locate-me-sns.appspot.com"
-const REACT_APP_FIREBASE_MESSAGING_SENDER_ID = "1082270282780"
-const REACT_APP_FIREBASE_APP_ID = "1:1082270282780:web:7d07179df3c5ed45025bd9"
+const localProps = require('./init-props');
 
 const firebaseConfig = {
-    apiKey: REACT_APP_FIREBASE_API_KEY,
-    authDomain: REACT_APP_FIREBASE_AUTH_DOMAIN,
-    projectId: REACT_APP_FIREBASE_PROJECT_ID,
-    storageBucket: REACT_APP_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-    appId: REACT_APP_FIREBASE_APP_ID
+    apiKey: localProps("REACT_APP_FIREBASE_API_KEY"),
+    authDomain: localProps("REACT_APP_FIREBASE_AUTH_DOMAIN"),
+    projectId: localProps("REACT_APP_FIREBASE_PROJECT_ID"),
+    storageBucket: localProps("REACT_APP_FIREBASE_STORAGE_BUCKET"),
+    messagingSenderId: localProps("REACT_APP_FIREBASE_MESSAGING_SENDER_ID"),
+    appId: localProps("REACT_APP_FIREBASE_APP_ID")
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
